@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>BLOCKRUN - multiplayer obby</title>
+<meta name="description" content="A multiplayer 3D obby you can play right inside your feed. 12 stages, live servers, no download.">
+<meta name="theme-color" content="#0b1020">
+
+<!-- X / Twitter Player Card: makes the game playable inside the tweet -->
+<meta name="twitter:card" content="player">
+<meta name="twitter:title" content="BLOCKRUN - multiplayer obby">
+<meta name="twitter:description" content="Play a 3D multiplayer obby right inside X. No download.">
+<meta name="twitter:image" content="{{ORIGIN}}/og.png">
+<meta name="twitter:player" content="{{ORIGIN}}/embed">
+<meta name="twitter:player:width" content="800">
+<meta name="twitter:player:height" content="800">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="BLOCKRUN - multiplayer obby">
+<meta property="og:description" content="Play a 3D multiplayer obby right in your browser.">
+<meta property="og:image" content="{{ORIGIN}}/og.png">
+<meta property="og:url" content="{{ORIGIN}}/">
+
+<link rel="icon" href="/icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@600;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="tags"></div>
+
+<!-- ============ LAUNCH MENU ============ -->
+<div id="menu">
+  <div class="menu-card">
+    <div class="logo"><span class="b">BLOCK</span><span class="r">RUN</span></div>
+    <div class="tag">multiplayer obby · 12 stages · play in your feed</div>
+
+    <div class="online"><i class="dot"></i><b id="onlineCount">-</b> playing now</div>
+
+    <div class="row">
+      <label>Name</label>
+      <input id="nameIn" maxlength="16" placeholder="Your name" autocomplete="off" spellcheck="false">
+    </div>
+    <div class="row">
+      <label>Color</label>
+      <div id="swatches"></div>
+    </div>
+
+    <div class="servers-head"><span>Servers</span><button id="refresh" title="Refresh">↻</button></div>
+    <div id="servers"><div class="srv loading">Finding servers…</div></div>
+
+    <button id="playBtn" class="play">PLAY</button>
+    <div class="hint">WASD / arrows · Space jump · drag to look · Enter chat</div>
+  </div>
+</div>
+
+<!-- ============ LOADING ============ -->
+<div id="loading" class="hidden"><div class="spinner"></div><div id="loadText">Joining server…</div></div>
+
+<!-- ============ HUD ============ -->
+<div id="hud" class="hidden">
+  <div id="topbar">
+    <div class="pill"><span id="stageLbl">STAGE 0</span><span class="sub">/ 12</span></div>
+    <div class="bar"><i id="stageBar"></i></div>
+    <div class="pill time" id="timer">0:00.0</div>
+  </div>
+  <div id="board"><div class="bh"><span id="roomName">Server</span><span id="boardCount"></span></div><div id="boardList"></div></div>
+  <div id="chat"><div id="chatLog"></div><input id="chatIn" maxlength="120" placeholder="Press Enter to chat" autocomplete="off"></div>
+  <div id="toast"></div>
+  <div id="menuBtn" title="Menu">☰</div>
+  <div id="stick"><div id="knob"></div></div>
+  <div id="jumpBtn">⤒</div>
+  <div id="win" class="hidden"><div class="wt">OBBY COMPLETE!</div><div id="winTime"></div><button id="againBtn" class="play small">PLAY AGAIN</button></div>
+</div>
+
+<script src="/game.js"></script>
+</body>
+</html>
