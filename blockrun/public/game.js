@@ -1,4 +1,4 @@
-// BLOCKRUN client - raw WebGL2, no dependencies.
+// Tweet Obby client - raw WebGL2, no dependencies.
 (() => {
 'use strict';
 
@@ -777,7 +777,7 @@ function start() {
     cam.yaw = Math.PI; cam.x = me.x; cam.y = me.y + 4; cam.z = me.z;
     $('win').classList.add('hidden'); $('chatLog').innerHTML = ''; updateStageUI();
     if (selected && selected.id !== 'solo') net.connect(selected); else $('roomName').textContent = 'Solo';
-    sysChat('Welcome to BLOCKRUN! Reach the golden platform.');
+    sysChat('Welcome to Starmex\'s Obby! Reach the golden platform.');
     renderBoard(); canvas.focus();
   }, 650);
 }
@@ -854,5 +854,5 @@ function frame(now) {
 requestAnimationFrame(frame);
 
 // for screenshots / debugging
-window.__br = { me, cam, start, solids, checkpoints, get mode() { return mode; }, setMode(m) { mode = m; } };
+window.__br = { me, cam, start, solids, checkpoints, others, addOther, get mode() { return mode; }, setMode(m) { mode = m; } };
 })();
